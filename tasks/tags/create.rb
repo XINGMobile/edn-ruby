@@ -17,7 +17,7 @@ namespace :tags do
 
     # check that there are no differences between master and remote master
     puts 'checking diffs between local and remote master'
-    differences = `git diff --name-only master origin/master`
+    differences = `git diff --name-only master xing_mobile_fork/master`
     raise "please pull the latest changes to 'master' branch\n" if !Process.last_status.success? || differences != ''
 
     # check that there are no remote tags with same number
@@ -27,7 +27,7 @@ namespace :tags do
     tags_string = `git tag`
     tags_array = tags_string.split "\n"
     if tags_array.include? current_version_name
-      raise "the tag '#{current_version_name}' already exists in the 'origin' remote, please bump the version further\n"
+      raise "the tag '#{current_version_name}' already exists in the 'xing_mobile_fork' remote, please bump the version further\n"
     end
 
     # create a local tag
@@ -37,7 +37,7 @@ namespace :tags do
 
     # push the tag to remote (or rollback)
     puts "pushing the tag '#{current_version_name}' to remote"
-    `git push origin #{current_version_name}`
+    `git push xing_mobile_fork #{current_version_name}`
     unless Process.last_status.success?
       puts "deleting the local tag '#{current_version_name}' because pushing failed"
       `git tag -d #{current_version_name}`
