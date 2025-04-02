@@ -264,3 +264,10 @@ More than one piece of metadata can be applied to an element. Metadata is applie
 
 [edn]: https://github.com/edn-format/edn
 [README]: https://github.com/edn-format/edn/blob/master/README.md
+
+
+
+
+## Releasing (XING)
+
+Follow [Build and Release a gem on JFROG](https://fantastic-couscous-zwrnp14.pages.github.io/getting-started/configurations/jfrog-ruby#) Documentation
